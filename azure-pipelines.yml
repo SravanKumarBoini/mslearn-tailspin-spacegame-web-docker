@@ -6,7 +6,7 @@ variables:
   webRepository: 'web'
   tag: '$(Build.BuildId)'
 
-  - stage: 'Build'
+  -stage: 'Build'
   displayName: 'Build and push'
   jobs:  
   - job: 'Build'
@@ -75,10 +75,10 @@ variables:
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: drop
 
-- stage: 'Deploy'
-  displayName: 'Deploy the container'
-  dependsOn: Build
-  jobs:
+  - stage: 'Deploy'
+    displayName: 'Deploy the container'
+    dependsOn: Build
+    jobs:
   - job: 'Deploy'
     displayName: 'Deploy job'
     pool:
